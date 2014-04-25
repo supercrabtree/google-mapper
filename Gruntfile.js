@@ -8,7 +8,7 @@
 // 'test/spec/**/*.js'
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
-var config = require('./lib/config/config');
+var config = require('./server/config/config');
 
 module.exports = function (grunt) {
 
@@ -79,7 +79,7 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/scripts/{,*//*}*.js',
           '<%= yeoman.app %>/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
         ],
-      
+
         options: {
           livereload: true
         }
@@ -87,7 +87,7 @@ module.exports = function (grunt) {
       express: {
         files: [
           'server.js',
-          'lib/**/*.{js,json}'
+          'server/**/*.{js,json}'
         ],
         tasks: ['newer:jshint:server', 'express:dev', 'wait'],
         options: {
@@ -105,9 +105,9 @@ module.exports = function (grunt) {
       },
       server: {
         options: {
-          jshintrc: 'lib/.jshintrc'
+          jshintrc: '.jshintrcnode'
         },
-        src: [ 'lib/{,*/}*.js']
+        src: [ 'server/{,*/}*.js']
       },
       all: [
         '<%= yeoman.app %>/scripts/{,*/}*.js'
@@ -188,7 +188,7 @@ module.exports = function (grunt) {
             nodemon.on('config:update', function () {
               setTimeout(function () {
                 require('open')('http://localhost:8080/debug?port=5858');
-              }, 500);              
+              }, 500);
             });
           }
         }
@@ -333,7 +333,7 @@ module.exports = function (grunt) {
           src: [
             'package.json',
             'server.js',
-            'lib/**/*'
+            'server/**/*'
           ]
         }]
       },
@@ -486,7 +486,7 @@ module.exports = function (grunt) {
       'test:server',
       'test:client'
     ]);
-  });  
+  });
 
   grunt.registerTask('build', [
     'clean:dist',
