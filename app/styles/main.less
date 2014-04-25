@@ -1,7 +1,15 @@
 @import "app/bower_components/normalize-less/normalize";
 
+@searchSize: 30px;
+@buttonColor: #4d90fe;
+
 * {
   box-sizing: border-box;
+}
+
+button:focus,
+input:focus{
+  outline: 0;
 }
 
 html,
@@ -9,4 +17,44 @@ body,
 .container,
 #google-map {
   height: 100%;
+}
+
+#content-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+#search-form {
+  position: relative;
+  top: 10px;
+  left: 10px;
+
+  input,
+  button {
+    vertical-align: middle;
+    height: @searchSize;
+    -webkit-appearance: none;
+  }
+  input {
+    width: 300px;
+    font-size: 15px;
+    border-radius: 0;
+    border: 1px solid lightgray;
+  }
+  button {
+    border: none;
+    padding: 0;
+    width: @searchSize;
+    background-color: @buttonColor;
+
+    &:hover {
+      background-color: darken(@buttonColor, 5%);
+    }
+  }
+  svg {
+    padding: 1px;
+    width: 50%;
+    height: 50%;
+  }
 }
