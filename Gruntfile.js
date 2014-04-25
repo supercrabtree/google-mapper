@@ -66,8 +66,8 @@ module.exports = function (grunt) {
         tasks: ['newer:jshint:test', 'karma']
       },
       styles: {
-        files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
-        tasks: ['newer:copy:styles', 'autoprefixer']
+        files: ['<%= yeoman.app %>/styles/{,*/}*.*'],
+        tasks: ['less:serve', 'autoprefixer']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -79,7 +79,6 @@ module.exports = function (grunt) {
           '{.tmp,<%= yeoman.app %>}/scripts/{,*//*}*.js',
           '<%= yeoman.app %>/images/{,*//*}*.{png,jpg,jpeg,gif,webp,svg}'
         ],
-
         options: {
           livereload: true
         }
@@ -93,6 +92,14 @@ module.exports = function (grunt) {
         options: {
           livereload: true,
           nospawn: true //Without this option specified express won't be reloaded
+        }
+      }
+    },
+
+    less: {
+      serve: {
+        files: {
+          '.tmp/styles/main.css': '<%= yeoman.app %>/styles/main.less'
         }
       }
     },
@@ -453,6 +460,7 @@ module.exports = function (grunt) {
       'clean:server',
       'bower-install',
       'concurrent:server',
+      'less:serve',
       'autoprefixer',
       'express:dev',
       'open',
@@ -493,6 +501,7 @@ module.exports = function (grunt) {
     'bower-install',
     'useminPrepare',
     'concurrent:dist',
+    'less:dist',
     'autoprefixer',
     'concat',
     'ngmin',
