@@ -101,6 +101,11 @@ module.exports = function (grunt) {
         files: {
           '.tmp/styles/main.css': '<%= yeoman.app %>/styles/main.less'
         }
+      },
+      dist: {
+        files: {
+          'dist/public/styles/main.css': '<%= yeoman.app %>/styles/main.less'
+        }
       }
     },
 
@@ -217,7 +222,7 @@ module.exports = function (grunt) {
           src: [
             '<%= yeoman.dist %>/public/scripts/{,*/}*.js',
             '<%= yeoman.dist %>/public/styles/{,*/}*.css',
-            '<%= yeoman.dist %>/public/images/{,*/}*.{png,jpg,jpeg,gif,webp,svg}',
+            '<%= yeoman.dist %>/public/images/{,*/}*.{png,jpg,jpeg,gif,webp}',
             '<%= yeoman.dist %>/public/styles/fonts/*'
           ]
         }
@@ -320,7 +325,7 @@ module.exports = function (grunt) {
             '*.{ico,png,txt}',
             '.htaccess',
             'bower_components/**/*',
-            'images/{,*/}*.{webp}',
+            'images/*.svg',
             'fonts/**/*'
           ]
         }, {
@@ -372,7 +377,7 @@ module.exports = function (grunt) {
       dist: [
         'copy:styles',
         'imagemin',
-        'svgmin',
+        // 'svgmin',
         'htmlmin'
       ]
     },
@@ -501,7 +506,6 @@ module.exports = function (grunt) {
     'bower-install',
     'useminPrepare',
     'concurrent:dist',
-    'less:dist',
     'autoprefixer',
     'concat',
     'ngmin',
@@ -510,7 +514,8 @@ module.exports = function (grunt) {
     'cssmin',
     'uglify',
     'rev',
-    'usemin'
+    'usemin',
+    'less:dist'
   ]);
 
   grunt.registerTask('heroku', function () {

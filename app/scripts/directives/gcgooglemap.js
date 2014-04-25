@@ -37,6 +37,7 @@ angular.module('googleMapperApp')
         MapsGeocoder.on('searchComplete', function (results) {
           map.setCenter(results[0].geometry.location);
           createNewMarker(map, results);
+          results[0].geometry.viewport && map.fitBounds(results[0].geometry.viewport);
         });
       }
     };

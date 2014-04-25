@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('googleMapperApp')
-  .factory('MapsGeocoder', function ($q) {
+  .factory('MapsGeocoder', function () {
 
     var that;
     var geocoder = new google.maps.Geocoder();
