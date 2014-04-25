@@ -7,8 +7,10 @@ angular.module('googleMapperApp')
       scope: {},
       link: function postLink(scope, element, attrs) {
 
+        var shakeClasses = ['shake', 'shake-little', 'shake-constant', 'shake-horizontal', 'search-error'];
+
         function shake() {
-          _.forEach(['shake', 'shake-little', 'shake-constant', 'shake-horizontal', 'search-error'], function (klass) {
+          _.forEach(shakeClasses, function (klass) {
             element.addClass(klass);
           });
           $timeout(fadeText, 400);
@@ -16,7 +18,7 @@ angular.module('googleMapperApp')
         }
 
         function unshake() {
-          _.forEach(['shake', 'shake-little', 'shake-constant', 'shake-horizontal', 'search-error'], function (klass) {
+          _.forEach(shakeClasses, function (klass) {
             element.removeClass(klass);
           });
         }
