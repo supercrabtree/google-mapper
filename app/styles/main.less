@@ -42,6 +42,17 @@ body,
     font-size: 15px;
     border-radius: 0;
     border: 1px solid lightgray;
+    transition:background-color 0.9s ease;
+
+    &.search-error {
+      border: 1px solid red;
+      background-color: mistyrose;
+      transition:background-color 0s;
+    }
+    &.fade-text {
+      color: white;
+      transition:color 0.5s ease;
+    }
   }
   button {
     border: none;
