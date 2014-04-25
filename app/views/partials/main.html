@@ -1,8 +1,8 @@
 <gc-google-map></gc-google-map>
 <div id="content-overlay">
-  <form id="search-form">
-    <input type="text">
-    <button id="search-button">
+  <form id="search-form" ng-submit="doSearch($event, searchQuery)">
+    <input type="text" ng-model="searchQuery">
+    <button id="search-button" type="submit">
       <span ng-include="'images/search-icon.svg'"></span>
     </button>
   </form>

@@ -7,6 +7,7 @@
   "camelcase": true,
   "curly": true,
   "eqeqeq": true,
+  "expr": true,
   "freeze": true,
   "immed": true,
   "indent": 2,
@@ -29,7 +30,8 @@
   "globals": {
     "_": false,
     "angular": false,
-    "google": false
+    "google": false,
+    "EventEmitter": false
   }
 }
 
