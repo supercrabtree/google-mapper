@@ -29,8 +29,7 @@
   "globals": {
     "_": false,
     "angular": false,
-    "Modernizr": false,
-    "TweenMax": false
+    "google": false
   }
 }
 
