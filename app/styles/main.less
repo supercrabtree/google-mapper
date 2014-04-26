@@ -3,6 +3,9 @@
 @searchSize: 30px;
 @buttonColor: #4d90fe;
 
+@small: ~"only screen and (max-width: 480px)";
+@iphone5: ~"only screen and (min-device-width: 560px) and (max-device-width: 1136px) and (-webkit-min-device-pixel-ratio: 2)";
+
 * {
   box-sizing: border-box;
 }
@@ -23,13 +26,21 @@ body,
   position: absolute;
   top: 0;
   left: 0;
+  padding: 10px;
+  width: 100%;
 }
 
 #search-form {
-  position: relative;
-  top: 10px;
-  left: 10px;
+  display: table;
+  width: 100%;
 
+  div {
+    display: inline;
+    width: 100%;
+    @media @small, @iphone5 {
+      display: table-cell;
+    }
+  }
   input,
   button {
     vertical-align: middle;
@@ -43,6 +54,10 @@ body,
     border-radius: 0;
     border: 1px solid lightgray;
     transition:background-color 0.9s ease;
+
+     @media @small, @iphone5 {
+      width: 100%;
+    }
 
     &.search-error {
       border: 1px solid red;

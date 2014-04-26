@@ -3,13 +3,12 @@
 <div id="content-overlay">
 
   <form id="search-form" ng-submit="doSearch($event, searchQuery)">
-
-    <input type="text" ng-model="searchQuery" shake-error autofocus>
-
+    <div>
+      <input type="text" ng-model="searchQuery" shake-error autofocus>
+    </div>
     <button id="search-button" type="submit">
       <span ng-include="'images/search-icon.svg'"></span>
     </button>
-
   </form>
 
 </div>
